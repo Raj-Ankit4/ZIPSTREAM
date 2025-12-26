@@ -1,7 +1,5 @@
-# Large ZIP Chunked Upload System
-
-## How to Run
-docker compose up
+# ZipStream
+- Large ZIP File Uploader
 
 ## Features
 - 5MB chunked uploads
