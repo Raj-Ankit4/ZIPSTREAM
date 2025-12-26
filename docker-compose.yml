@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: uploader
+    ports:
+      - "3306:3306"
+
+  backend:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: node index.js
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+  # frontend:
+  #   image: node:18
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend:/app
+  #   command: npm run dev
+  #   ports:
+  #     - "5173:5173"
